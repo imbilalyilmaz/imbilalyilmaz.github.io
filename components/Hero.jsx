@@ -1,8 +1,14 @@
 'use client'
 
 import { ChevronDown } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { en } from '@/translations/en'
+import { tr } from '@/translations/tr'
 
 const Hero = () => {
+  const { language } = useLanguage()
+  const t = language === 'en' ? en : tr
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -24,11 +30,7 @@ const Hero = () => {
         <div className="w-24 h-px bg-slate-300 mx-auto my-12"></div>
         
         <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed text-balance">
-          A computer engineering student specializing in Site Reliability Engineering (SRE), cloud infrastructure, 
-          and DevOps practices. Passionate about building scalable, reliable systems using Kubernetes, containerization, 
-          and cloud-native technologies. Experienced in designing microservices architectures, implementing CI/CD pipelines, 
-          and optimizing cloud operations. Also interested in artificial intelligence and computer graphics, 
-          aiming to develop innovative solutions that bridge cloud computing and AI technologies.
+          {t.hero.description}
         </p>
         
         <div className="pt-8">
@@ -37,7 +39,7 @@ const Hero = () => {
             className="group inline-flex items-center gap-2 px-8 py-3 border border-slate-300 text-slate-700 hover:border-slate-500 hover:text-charcoal transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
             aria-label="View projects"
           >
-            View Work
+            {t.hero.viewWork}
             <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-200" aria-hidden="true" />
           </button>
         </div>

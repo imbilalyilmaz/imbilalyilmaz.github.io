@@ -5,10 +5,12 @@ import Experience from '@/components/Experience'
 import Projects from '@/components/Projects'
 import Achievements from '@/components/Achievements'
 import Footer from '@/components/Footer'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <LanguageSwitcher />
       <Hero />
       <Skills />
       <Education />

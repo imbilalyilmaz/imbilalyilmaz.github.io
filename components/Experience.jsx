@@ -1,29 +1,13 @@
+'use client'
+
 import { Briefcase, Calendar } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { en } from '@/translations/en'
+import { tr } from '@/translations/tr'
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: 'Trainer - Mentor Scholar',
-      company: 'T3 Foundation\'s Deneyap Workshop',
-      location: 'Çanakkale, TR',
-      period: 'November 2024 - Ongoing',
-      description: 'Providing training and mentorship to selected students as part of the Deneyap Workshop program.'
-    },
-    {
-      title: 'Project Ecosystem Member',
-      company: 'Çanakkale Onsekiz Mart University - BedLab',
-      location: 'Çanakkale, TR',
-      period: 'October 2024 - Ongoing',
-      description: 'Participating in a multidisciplinary project ecosystem focused on deep learning and medical image processing. Collaborating with professionals from computer engineering, electrical and electronic engineering, and medicine. Researching tumor segmentation techniques using AI architectures like CNN-based and YOLO-based models.'
-    },
-    {
-      title: 'AI Intern',
-      company: 'Istanbul University TETLab',
-      location: 'Istanbul, TR',
-      period: 'August 2024 - September 2024',
-      description: 'Improved capabilities in artificial intelligence techniques. Worked on image processing models for medical applications.'
-    }
-  ]
+  const { language } = useLanguage()
+  const t = language === 'en' ? en : tr
 
   return (
     <section 
@@ -37,13 +21,13 @@ const Experience = () => {
             id="experience-heading"
             className="text-4xl md:text-5xl font-light text-charcoal mb-4"
           >
-            Experience
+            {t.experience.title}
           </h2>
           <div className="w-16 h-px bg-slate-300 mx-auto"></div>
         </div>
         
         <div className="space-y-8">
-          {experiences.map((exp, index) => (
+          {t.experience.experiences.map((exp, index) => (
             <article
               key={index}
               className="bg-white border border-slate-200 p-6 md:p-8 hover:border-slate-400 transition-colors duration-200 focus-within:ring-2 focus-within:ring-slate-400 focus-within:ring-offset-2"

@@ -1,46 +1,54 @@
+'use client'
+
 import { ExternalLink, Github } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { en } from '@/translations/en'
+import { tr } from '@/translations/tr'
 
 const Projects = () => {
+  const { language } = useLanguage()
+  const t = language === 'en' ? en : tr
+
   const projects = [
     {
-      title: 'Kubernetes Staticsite Operator',
-      description: 'A custom Kubernetes Operator developed with Go and Kubebuilder. It automates the lifecycle management of static websites by watching for custom StaticSite resources and dynamically provisioning the necessary Deployment, Service, and Ingress objects.',
+      title: t.projects.projects[0].title,
+      description: t.projects.projects[0].description,
       tech: ['Go', 'Kubernetes', 'Kubebuilder', 'DevOps'],
       github: 'https://github.com/imbilalyilmaz/k8s-staticsite-operator',
       live: null
     },
     {
-      title: 'Thesis Compliance Checker',
-      description: 'Developing an NLP-based system to automatically verify thesis compliance with academic writing rules. The project checks citations, bibliography consistency, and adherence to formatting guidelines, ensuring overall compliance with thesis regulations.',
+      title: t.projects.projects[1].title,
+      description: t.projects.projects[1].description,
       tech: ['Python', 'NLP', 'Machine Learning', 'Natural Language Processing'],
       github: null,
       live: null,
-      status: 'Ongoing'
+      status: t.projects.projects[1].status
     },
     {
-      title: 'Mouse Dynamics Based Authentication',
-      description: 'AI-based user authentication system that identifies users based on their mouse movement behavior. Responsible for developing the AI model, with a focus on feature extraction, feature selection, and model training using the collected behavioral data. Supported by TÜBİTAK 2209-A.',
+      title: t.projects.projects[2].title,
+      description: t.projects.projects[2].description,
       tech: ['Python', 'Machine Learning', 'AI', 'Feature Engineering'],
       github: null,
       live: null
     },
     {
-      title: 'Atlas E-Commerce Modernization',
-      description: 'As a finalist in Türk Telekom\'s cloud computing camp, actively participated in modernizing the Atlas E-Commerce Project. Designed a scalable microservices architecture integrating Kubernetes, Kafka, and database technologies with comprehensive DevOps processes.',
+      title: t.projects.projects[3].title,
+      description: t.projects.projects[3].description,
       tech: ['Kubernetes', 'Kafka', 'Microservices', 'DevOps', 'Linux'],
       github: null,
       live: null
     },
     {
-      title: 'AI-Powered Leave Approval System',
-      description: 'Fully integrated AI-powered leave approval system developed for a hackathon. Achieved 1st place among 10 teams. Features intelligent approval workflows and automated decision-making capabilities.',
+      title: t.projects.projects[4].title,
+      description: t.projects.projects[4].description,
       tech: ['Java', 'Python', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
       github: 'https://github.com/imbilalyilmaz/datasist-hackaton',
       live: null
     },
     {
-      title: 'Medical Image Processing - Tumor Segmentation',
-      description: 'Research project focused on tumor segmentation techniques using AI architectures like CNN-based and YOLO-based models. Collaborating in a multidisciplinary project ecosystem at BedLab, working with professionals from computer engineering, electrical engineering, and medicine.',
+      title: t.projects.projects[5].title,
+      description: t.projects.projects[5].description,
       tech: ['Python', 'Deep Learning', 'CNN', 'YOLO', 'Medical Imaging', 'OpenCV'],
       github: null,
       live: null
@@ -59,7 +67,7 @@ const Projects = () => {
             id="projects-heading"
             className="text-4xl md:text-5xl font-light text-charcoal mb-4"
           >
-            Projects
+            {t.projects.title}
           </h2>
           <div className="w-16 h-px bg-slate-300 mx-auto"></div>
         </div>
@@ -101,7 +109,7 @@ const Projects = () => {
                       aria-label={`View ${project.title} on GitHub`}
                     >
                       <Github className="w-4 h-4" aria-hidden="true" />
-                      Code
+                      {t.projects.code}
                     </a>
                   )}
                   {project.live && (
@@ -113,7 +121,7 @@ const Projects = () => {
                       aria-label={`View live ${project.title}`}
                     >
                       <ExternalLink className="w-4 h-4" aria-hidden="true" />
-                      Live
+                      {t.projects.live}
                     </a>
                   )}
                 </div>

@@ -1,6 +1,13 @@
+'use client'
+
 import { Mail, Linkedin, Github } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { en } from '@/translations/en'
+import { tr } from '@/translations/tr'
 
 const Footer = () => {
+  const { language } = useLanguage()
+  const t = language === 'en' ? en : tr
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
@@ -32,7 +39,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-sm text-slate-400">
-            <p>&copy; {currentYear} All rights reserved.</p>
+            <p>&copy; {currentYear} {t.footer.rights}</p>
           </div>
           
           <nav aria-label="Social links">
@@ -60,7 +67,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-slate-800 text-center">
           <p className="text-xs text-slate-500">
-            Built with Next.js and Tailwind CSS
+            {t.footer.built}
           </p>
         </div>
       </div>

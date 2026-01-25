@@ -1,28 +1,13 @@
+'use client'
+
 import { Award, Trophy } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { en } from '@/translations/en'
+import { tr } from '@/translations/tr'
 
 const Achievements = () => {
-  const achievements = [
-    {
-      title: 'Türk Telekom Cloud Computing Camp Finalist',
-      description: 'Actively participated in the modernization efforts of the Atlas E-Commerce Project. Designed a scalable microservices architecture integrating Kubernetes, Kafka, and database technologies. Successfully implemented comprehensive technical scenarios related to cloud computing infrastructures and DevOps processes.',
-      icon: Trophy
-    },
-    {
-      title: 'Huawei Cloud & BTK Coding Marathon Finalist',
-      description: 'Participated as finalists, developing a project in the field of climate action and successfully deploying the solution on Huawei Cloud (2025).',
-      icon: Trophy
-    },
-    {
-      title: '1st Place - AI Hackathon',
-      description: 'Achieved 1st place among 10 teams in a hackathon organized by Datassist and filika.co. Developed a fully integrated AI-powered leave approval system using Java, Python, Spring Boot, React, TypeScript, and PostgreSQL.',
-      icon: Award
-    },
-    {
-      title: '1st Place - Datathon Competition',
-      description: 'Secured 1st place in the Datathon competition held at the end of a bootcamp organized by Techcareer, with a machine learning-based solution.',
-      icon: Award
-    }
-  ]
+  const { language } = useLanguage()
+  const t = language === 'en' ? en : tr
 
   return (
     <section 
@@ -36,14 +21,14 @@ const Achievements = () => {
             id="achievements-heading"
             className="text-4xl md:text-5xl font-light text-charcoal mb-4"
           >
-            Achievements
+            {t.achievements.title}
           </h2>
           <div className="w-16 h-px bg-slate-300 mx-auto"></div>
         </div>
         
         <div className="space-y-6">
-          {achievements.map((achievement, index) => {
-            const IconComponent = achievement.icon
+          {t.achievements.achievements.map((achievement, index) => {
+            const IconComponent = index < 2 ? Trophy : Award
             return (
               <article
                 key={index}

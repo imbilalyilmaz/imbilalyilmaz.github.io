@@ -1,3 +1,5 @@
+'use client'
+
 import { 
   Code, 
   Database, 
@@ -6,38 +8,48 @@ import {
   Users,
   Languages
 } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { en } from '@/translations/en'
+import { tr } from '@/translations/tr'
 
 const Skills = () => {
+  const { language } = useLanguage()
+  const t = language === 'en' ? en : tr
+
   const skillCategories = [
     {
-      title: 'Programming Languages',
+      title: t.skills.categories.programming,
       icon: Code,
-      skills: ['Python', 'Java', 'C#', 'C++']
+      skills: ['Python', 'Go', 'Java', 'C#', 'C++']
     },
     {
-      title: 'Databases',
+      title: t.skills.categories.databases,
       icon: Database,
       skills: ['MongoDB', 'PostgreSQL']
     },
     {
-      title: 'AI & Machine Learning',
+      title: t.skills.categories.ai,
       icon: Brain,
       skills: ['Machine Learning', 'Deep Learning', 'NLP', 'CNN', 'YOLO']
     },
     {
-      title: 'Cloud & DevOps',
+      title: t.skills.categories.cloud,
       icon: Cloud,
       skills: ['Docker', 'Kubernetes', 'Cloud Computing', 'Microservices']
     },
     {
-      title: 'Soft Skills',
+      title: t.skills.categories.soft,
       icon: Users,
-      skills: ['Problem Solving', 'Creativity', 'Work Ethic', 'Teamwork', 'Responsibility', 'Time Management']
+      skills: language === 'en' 
+        ? ['Problem Solving', 'Creativity', 'Work Ethic', 'Teamwork', 'Responsibility', 'Time Management']
+        : ['Problem Çözme', 'Yaratıcılık', 'Çalışma Etiği', 'Takım Çalışması', 'Sorumluluk', 'Zaman Yönetimi']
     },
     {
-      title: 'Languages',
+      title: t.skills.categories.languages,
       icon: Languages,
-      skills: ['English (B2)', 'Turkish (Native)']
+      skills: language === 'en' 
+        ? ['English (B2)', 'Turkish (Native)']
+        : ['İngilizce (B2)', 'Türkçe (Ana Dil)']
     }
   ]
 
@@ -53,7 +65,7 @@ const Skills = () => {
             id="skills-heading"
             className="text-4xl md:text-5xl font-light text-charcoal mb-4"
           >
-            Skills
+            {t.skills.title}
           </h2>
           <div className="w-16 h-px bg-slate-300 mx-auto"></div>
         </div>
