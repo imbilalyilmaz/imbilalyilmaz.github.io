@@ -24,6 +24,13 @@ export const tr = {
     title: "Deneyim",
     experiences: [
       {
+        title: "SRE & DevOps Stajyeri",
+        company: "Logo Yazılım",
+        location: "Uzaktan",
+        period: "Şubat 2026 - Devam Ediyor",
+        description: "Linux ortamları, Docker ve Kubernetes ekosistemi hakkında öğrenme ve gözlem odaklı çalışıyorum. CI/CD ve sistem güvenilirliği konularında temel pratikler kazanma sürecindeyim."
+      },
+      {
         title: "Eğitmen - Mentor Bursiyer",
         company: "T3 Vakfı Deneyap Atölyesi",
         location: "Çanakkale, TR",
