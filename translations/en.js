@@ -27,7 +27,7 @@ export const en = {
         title: "SRE & DevOps Intern",
         company: "Logo Yazılım",
         location: "Remote",
-        period: "February 2026 - Ongoin",
+        period: "February 2026 - April 2026",
         description: "I am working in a learning- and observation-focused role, gaining exposure to Linux environments, Docker, and the Kubernetes ecosystem. I am in the process of developing foundational practical skills in CI/CD and system reliability."
       },
       {
